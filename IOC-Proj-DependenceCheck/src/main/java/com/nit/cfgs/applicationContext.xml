@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+<!-- Dependent class configuration -->
+
+<bean id="eng" class="com.nit.beans.EngineDependent">
+<property name="type" value="petrol"/>
+</bean>
+
+<!-- Target Class configuration -->
+<!-- comment the id property  bcz its simple type-->
+<!-- <bean id="vehicle" class="com.nit.beans.VehicleTarget" dependency-check="simple">
+
+<property name="id" value="1001"/> 
+<property name="engine" ref="eng"/>
+</bean>
+ -->
+ <!-- comment the engine property  bcz its object type-->
+<bean id="vehicle" class="com.nit.beans.VehicleTarget" dependency-check="objects">
+<property name="id" value="1001"/> 
+<!-- <property name="engine" ref="eng"/>  -->
+</bean>
+<!-- comment the id and engine property  bcz its all type-->
+<!-- <bean id="vehicle" class="com.nit.beans.VehicleTarget" dependency-check="all">
+
+<property name="id" value="1001"/> 
+<property name="engine" ref="eng"/>
+</bean>
+ -->
+
+</beans>
